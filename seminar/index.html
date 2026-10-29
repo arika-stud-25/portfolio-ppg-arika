@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Digital Seminar PPG - Media Presentasi</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        ppgPrimary: '#0284c7',   // Ocean Blue
+                        ppgSecondary: '#10b981', // Emerald Green
+                        ppgDarkBg: '#0f172a',
+                        ppgDarkCard: '#1e293b'
+                    },
+                    animation: {
+                        'blob': 'blob 7s infinite',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -40px) scale(1.08)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.92)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        html {
+            zoom: 90%;
+        }
+
+        @supports not (zoom: 85%) {
+            body {
+                transform: scale(0.85);
+                transform-origin: top center;
+                width: 125%;
+            }
+        }
+
+        body { font-family: 'Inter', sans-serif; }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        .dark .glass-card {
+            background: rgba(30, 41, 59, 0.75);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Hide Scrollbar for Carousel Gallery while keeping scroll functionality */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 dark:bg-ppgDarkBg dark:text-slate-100 transition-colors duration-300 min-h-screen relative overflow-x-hidden">
+
+    <!-- Ambient Moving Background Blobs -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden opacity-40 dark:opacity-20">
+        <div class="absolute top-10 left-10 w-80 h-80 bg-sky-400 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
+        <div class="absolute top-1/3 right-10 w-96 h-96 bg-emerald-400 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
+        <div class="absolute bottom-10 left-1/3 w-80 h-80 bg-teal-300 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000"></div>
+    </div>
+
+    <!-- Header Navigation Bar -->
+    <header class="sticky top-0 z-40 w-full glass-card border-b border-slate-200 dark:border-slate-800 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="p-2 bg-gradient-to-tr from-sky-600 to-emerald-500 rounded-xl text-white shadow-md">
+                    <i data-lucide="pencil-sparkles" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <h1 class="font-bold text-lg leading-tight bg-gradient-to-r from-sky-600 to-emerald-600 dark:from-sky-400 dark:to-emerald-400 bg-clip-text text-transparent">
+                        Galeri Refleksi
+                    </h1>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">Portofolio Digital PPG</p>
+                </div>
+            </div>
+
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex items-center gap-1 lg:gap-2 text-sm font-medium">
+                <a href="#identifikasi-diri" class="px-3 py-2 rounded-lg hover:bg-sky-50 dark:hover:bg-slate-800 hover:text-sky-600 dark:hover:text-sky-400 transition-all flex items-center gap-1.5">
+                    <i data-lucide="user" class="w-4 h-4"></i> Identifikasi Diri
+                </a>
+                <a href="#refleksi-sem1" class="px-3 py-2 rounded-lg hover:bg-sky-50 dark:hover:bg-slate-800 hover:text-sky-600 dark:hover:text-sky-400 transition-all flex items-center gap-1.5">
+                    <i data-lucide="book-open" class="w-4 h-4"></i> Semester 1
+                </a>
+                <a href="#refleksi-sem2" class="px-3 py-2 rounded-lg hover:bg-sky-50 dark:hover:bg-slate-800 hover:text-sky-600 dark:hover:text-sky-400 transition-all flex items-center gap-1.5">
+                    <i data-lucide="layers" class="w-4 h-4"></i> Semester 2
+                </a>
+                <a href="#refleksi-ppg" class="px-3 py-2 rounded-lg hover:bg-sky-50 dark:hover:bg-slate-800 hover:text-sky-600 dark:hover:text-sky-400 transition-all flex items-center gap-1.5">
+                    <i data-lucide="compass" class="w-4 h-4"></i> Refleksi PPG
+                </a>
+                <a href="#inovasi" class="px-3 py-2 rounded-lg hover:bg-sky-50 dark:hover:bg-slate-800 hover:text-sky-600 dark:hover:text-sky-400 transition-all flex items-center gap-1.5">
+                    <i data-lucide="sparkles" class="w-4 h-4"></i> Karya Inovasi
+                </a>
+            </nav>
+
+            <!-- Actions, Theme Toggle, & Mobile Menu Trigger -->
+            <div class="flex items-center gap-2">
+                <button id="themeToggle" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:ring-2 ring-sky-500 transition-all flex items-center gap-2" title="Ubah Tema">
+                    <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
+                    <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                    
+                </button>
+
+                <!-- Mobile Hamburger Button -->
+                <button id="mobileMenuBtn" class="md:hidden p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:ring-2 ring-sky-500 transition-all" title="Buka Menu">
+                    <i data-lucide="menu" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu Drawer -->
+        <div id="mobileMenu" class="hidden md:hidden border-t border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 backdrop-blur-lg px-4 pt-2 pb-4 space-y-1 shadow-lg">
+            <a href="#identifikasi-diri" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-xl text-sm font-medium hover:bg-sky-50 dark:hover:bg-slate-800 hover:text-sky-600 dark:hover:text-sky-400 transition-all flex items-center gap-2">
+                <i data-lucide="user" class="w-4 h-4"></i> Identifikasi Diri
+            </a>
+            <a href="#refleksi-sem1" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-xl text-sm font-medium hover:bg-sky-50 dark:hover:bg-slate-800 hover:text-sky-600 dark:hover:text-sky-400 transition-all flex items-center gap-2">
+                <i data-lucide="book-open" class="w-4 h-4"></i> Semester 1
+            </a>
+            <a href="#refleksi-sem2" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-xl text-sm font-medium hover:bg-sky-50 dark:hover:bg-slate-800 hover:text-sky-600 dark:hover:text-sky-400 transition-all flex items-center gap-2">
+                <i data-lucide="layers" class="w-4 h-4"></i> Semester 2
+            </a>
+            <a href="#refleksi-ppg" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-xl text-sm font-medium hover:bg-sky-50 dark:hover:bg-slate-800 hover:text-sky-600 dark:hover:text-sky-400 transition-all flex items-center gap-2">
+                <i data-lucide="compass" class="w-4 h-4"></i> Refleksi PPG
+            </a>
+            <a href="#inovasi" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-xl text-sm font-medium hover:bg-sky-50 dark:hover:bg-slate-800 hover:text-sky-600 dark:hover:text-sky-400 transition-all flex items-center gap-2">
+                <i data-lucide="sparkles" class="w-4 h-4"></i> Karya Inovasi
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-16">
+
+        <!-- HERO / BANNER PRESENTASI -->
+        <section class="glass-card rounded-3xl p-6 sm:p-10 border border-slate-200 dark:border-slate-800 relative overflow-hidden shadow-xl">
+            <div class="absolute right-0 top-0 bottom-0 w-1/3 bg-gradient-to-l from-sky-500/10 to-transparent pointer-events-none"></div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+                <!-- Tekstual Hero (Kiri) -->
+                <div class="lg:col-span-7 space-y-4">
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800">
+                        <i data-lucide="award" class="w-3.5 h-3.5"></i> Seminar Pendidikan Profesi Guru
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">
+                        A Journey of Learning, Reflection, & Growth
+                    </h2>
+                    <p class="text-slate-600 dark:text-slate-300 text-base sm:text-lg leading-relaxed">
+                        Portofolio digital ini menyajikan keterpaduan mutlak antara narasi 4C (Connection, Challenge, Concept, Change) dengan bukti artefak pendukung di setiap sesi mata kuliah semester 1 dan semester 2.
+                    </p>
+                    <div class="pt-2 flex flex-wrap gap-4 text-xs font-semibold text-slate-500 dark:text-slate-400">
+                        <span class="flex items-center gap-1"><i data-lucide="check-circle-2" class="text-emerald-500 w-4 h-4"></i> Visi & Misi</span>
+                        <span class="flex items-center gap-1"><i data-lucide="check-circle-2" class="text-emerald-500 w-4 h-4"></i> Refleksi Mata Kuliah</span>
+                        <span class="flex items-center gap-1"><i data-lucide="check-circle-2" class="text-emerald-500 w-4 h-4"></i> Refleksi PPG Keseluruhan</span>
+                        <span class="flex items-center gap-1"><i data-lucide="check-circle-2" class="text-emerald-500 w-4 h-4"></i> Karya Inovasi</span>
+                    </div>
+                </div>
+
+                <!-- SVG Animasi Geometric Growth (Kanan) -->
+                <div class="lg:col-span-5 flex items-center justify-center">
+                    <div class="relative w-full max-w-sm aspect-square rounded-2xl overflow-hidden p-4 bg-gradient-to-tr from-sky-500/10 via-emerald-500/10 to-transparent backdrop-blur-md border border-white/20 dark:border-slate-700/50 shadow-xl flex items-center justify-center">
+                        <svg viewBox="0 0 400 400" class="w-full h-full max-w-[320px] max-h-[320px]">
+                            <defs>
+                                <!-- Gradients for Stem & Leaves -->
+                                <linearGradient id="stemGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+                                    <stop offset="0%" stop-color="#0284c7" />
+                                    <stop offset="50%" stop-color="#10b981" />
+                                    <stop offset="100%" stop-color="#34d399" />
+                                </linearGradient>
+                                <linearGradient id="leafGradLeft" x1="0%" y1="100%" x2="100%" y2="0%">
+                                    <stop offset="0%" stop-color="#059669" />
+                                    <stop offset="100%" stop-color="#34d399" />
+                                </linearGradient>
+                                <linearGradient id="leafGradRight" x1="0%" y1="100%" x2="100%" y2="0%">
+                                    <stop offset="0%" stop-color="#10b981" />
+                                    <stop offset="100%" stop-color="#6ee7b7" />
+                                </linearGradient>
+                                <linearGradient id="budGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#38bdf8" />
+                                    <stop offset="100%" stop-color="#10b981" />
+                                </linearGradient>
+                                
+                                <!-- Soft Glow Filter -->
+                                <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+                                    <feGaussianBlur stdDeviation="8" result="blur" />
+                                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                                </filter>
+                            </defs>
+
+                            <!-- Soil Base Ring Platform -->
+                            <ellipse cx="200" cy="350" rx="100" ry="16" class="fill-slate-300/40 dark:fill-slate-700/40" />
+                            <ellipse cx="200" cy="350" rx="70" ry="10" class="fill-emerald-500/20 dark:fill-emerald-400/20" />
+
+                            <!-- Main Stem (Growing Upward) -->
+                            <path d="M 200 350 Q 195 240 200 110" 
+                                  fill="none" 
+                                  stroke="url(#stemGrad)" 
+                                  stroke-width="7" 
+                                  stroke-linecap="round" 
+                                  style="stroke-dasharray: 260; stroke-dashoffset: 260; animation: growMainStem 3.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;" />
+
+                            <!-- Leaf Pair 1 (Bottom Growth) -->
+                            <g style="animation: scaleLeaf 3.5s cubic-bezier(0.4, 0, 0.2, 1) infinite; transform-origin: 200px 290px;">
+                                <!-- Left Leaf -->
+                                <path d="M 197 290 C 140 280 130 230 165 240 C 185 245 195 270 197 290 Z" fill="url(#leafGradLeft)" />
+                                <!-- Right Leaf -->
+                                <path d="M 203 270 C 260 260 270 210 235 220 C 215 225 205 250 203 270 Z" fill="url(#leafGradRight)" />
+                            </g>
+
+                            <!-- Leaf Pair 2 (Middle Growth) -->
+                            <g style="animation: scaleLeaf 3.5s cubic-bezier(0.4, 0, 0.2, 1) infinite; animation-delay: 0.4s; transform-origin: 200px 200px;">
+                                <!-- Left Leaf -->
+                                <path d="M 198 200 C 150 190 140 150 170 160 C 188 165 196 185 198 200 Z" fill="url(#leafGradLeft)" />
+                                <!-- Right Leaf -->
+                                <path d="M 202 180 C 250 170 260 130 230 140 C 212 145 204 165 202 180 Z" fill="url(#leafGradRight)" />
+                            </g>
+
+                            <!-- Top Sprout / Bud (Blooming Light at Peak) -->
+                            <g style="animation: bloomTop 3.5s cubic-bezier(0.4, 0, 0.2, 1) infinite; transform-origin: 200px 110px;">
+                                <circle cx="200" cy="110" r="22" fill="url(#budGrad)" filter="url(#glow)" class="opacity-80" />
+                                <circle cx="200" cy="110" r="12" fill="#ffffff" />
+                                <circle cx="200" cy="110" r="6" fill="#10b981" />
+                            </g>
+
+                            <!-- Floating Growth Energy Particles -->
+                            <circle cx="150" cy="210" r="3" fill="#34d399" class="animate-ping" style="animation-duration: 2.2s;" />
+                            <circle cx="250" cy="160" r="4" fill="#38bdf8" class="animate-ping" style="animation-duration: 2.8s; animation-delay: 0.5s;" />
+                            <circle cx="180" cy="120" r="2.5" fill="#a7f3d0" class="animate-ping" style="animation-duration: 1.9s; animation-delay: 0.8s;" />
+                        </svg>
+
+                        <!-- Keyframe CSS for Plant Growth Animation -->
+                        <style>
+                            @keyframes growMainStem {
+                                0% {
+                                    stroke-dashoffset: 260;
+                                }
+                                70%, 100% {
+                                    stroke-dashoffset: 0;
+                                }
+                            }
+
+                            @keyframes scaleLeaf {
+                                0%, 20% {
+                                    transform: scale(0);
+                                    opacity: 0;
+                                }
+                                75%, 100% {
+                                    transform: scale(1);
+                                    opacity: 1;
+                                }
+                            }
+
+                            @keyframes bloomTop {
+                                0%, 55% {
+                                    transform: scale(0);
+                                    opacity: 0;
+                                }
+                                85%, 100% {
+                                    transform: scale(1);
+                                    opacity: 1;
+                                }
+                            }
+                        </style>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 1: IDENTIFIKASI DIRI -->
+        <section id="identifikasi-diri" class="scroll-mt-20 space-y-6">
+            <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-3">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-2xl bg-sky-500/10 dark:bg-sky-400/10 text-sky-600 dark:text-sky-400 flex items-center justify-center font-bold">01</div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Identifikasi Diri</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Profil Diri, Visi Pendidikan, & Strategi Pencapaian</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Profil Card -->
+                <div class="glass-card rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-md hover:shadow-lg transition-all">
+                    <div class="flex flex-col items-center text-center space-y-3">
+                        <div class="relative">
+                            <img src="https://lh3.googleusercontent.com/d/1rLXwBsNqEujrNSy7iXLVi6QlRiEWwlXO" alt="Foto Mahasiswa" class="w-28 h-28 rounded-full object-cover border-4 border-sky-500/30 shadow-md">
+                            
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-slate-900 dark:text-white">Arika Rahma Faqih, S.Pd.</h4>
+                            <p class="text-base text-sky-600 dark:text-sky-400 font-medium">NIM: 25105260358</p>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Bidang Studi Informatika</p>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Universitas Negeri Yogyakarta</p>
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-300 space-y-2">
+                        <p><strong>Lokasi PPL:</strong> SMA Negeri 1 Depok</p>
+                        <p><strong>Guru Pamong:</strong> Parjanto, S.Pd.T., M.Pd.</p>
+                        <p><strong>Dosen Pembimbing:</strong> Muhammad Munir, M.Pd.</p>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-2 glass-card rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-md flex flex-col space-y-4">
+                    <!-- Tab Navigation Header -->
+                    <div class="flex flex-wrap sm:flex-nowrap gap-2 p-1.5 rounded-2xl bg-slate-100 dark:bg-slate-800/70 border border-slate-200/60 dark:border-slate-700/50">
+                        <button id="tabBtnVisiIndo" onclick="switchIdentifikasiTab('visi_indo')" class="flex-1 py-2.5 px-3 rounded-xl text-xs font-semibold flex items-center justify-center gap-2 transition-all">
+                            <i data-lucide="globe" class="w-4 h-4"></i> Visi untuk Pendidikan
+                        </button>
+                        <button id="tabBtnVisiGuru" onclick="switchIdentifikasiTab('visi_guru')" class="flex-1 py-2.5 px-3 rounded-xl text-xs font-semibold flex items-center justify-center gap-2 transition-all">
+                            <i data-lucide="user-check" class="w-4 h-4"></i> Visi Calon Guru
+                        </button>
+                        <button id="tabBtnStrategi" onclick="switchIdentifikasiTab('strategi')" class="flex-1 py-2.5 px-3 rounded-xl text-xs font-semibold flex items-center justify-center gap-2 transition-all">
+                            <i data-lucide="target" class="w-4 h-4"></i> Strategi
+                        </button>
+                    </div>
+
+                    <!-- Dynamic Tab Content Panel -->
+                    <div id="identifikasiTabContent" class="p-6 rounded-2xl bg-slate-50/80 dark:bg-slate-800/40 border border-slate-200/60 dark:border-slate-700/50 min-h-[180px] flex items-center transition-all duration-300">
+                        <!-- Content injected via JavaScript switchIdentifikasiTab() -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2A: REFLEKSI SEMESTER 1 (CAROUSEL GALLERY) -->
+        <section id="refleksi-sem1" class="scroll-mt-20 space-y-6">
+            <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-3">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-2xl bg-sky-500/10 dark:bg-sky-400/10 text-sky-600 dark:text-sky-400 flex items-center justify-center font-bold">02</div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Refleksi Pengalaman Belajar - Semester 1</h3>
+                    </div>
+                </div>
+                <!-- Navigasi Carousel Semester 1 -->
+                <div class="flex items-center gap-2">
+                    <button onclick="scrollCarousel('carousel-sem1', -1)" class="p-2 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-sky-600 hover:text-white dark:hover:bg-sky-500 text-slate-700 dark:text-slate-200 transition-all shadow-sm">
+                        <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                    </button>
+                    <button onclick="scrollCarousel('carousel-sem1', 1)" class="p-2 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-sky-600 hover:text-white dark:hover:bg-sky-500 text-slate-700 dark:text-slate-200 transition-all shadow-sm">
+                        <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Carousel Container Semester 1 -->
+            <div id="carousel-sem1" class="flex gap-6 overflow-x-auto no-scrollbar scroll-smooth py-2 px-1">
+                <!-- Cards will be populated by JavaScript from courseDatabase.sem1 -->
+            </div>
+        </section>
+
+        <!-- SECTION 2B: REFLEKSI SEMESTER 2 (CAROUSEL GALLERY) -->
+        <section id="refleksi-sem2" class="scroll-mt-20 space-y-6">
+            <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-3">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-2xl bg-emerald-500/10 dark:bg-emerald-400/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold">02</div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Refleksi Pengalaman Belajar - Semester 2</h3>
+                    </div>
+                </div>
+                <!-- Navigasi Carousel Semester 2 -->
+                <div class="flex items-center gap-2">
+                    <button onclick="scrollCarousel('carousel-sem2', -1)" class="p-2 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-emerald-600 hover:text-white dark:hover:bg-emerald-500 text-slate-700 dark:text-slate-200 transition-all shadow-sm">
+                        <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                    </button>
+                    <button onclick="scrollCarousel('carousel-sem2', 1)" class="p-2 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-emerald-600 hover:text-white dark:hover:bg-emerald-500 text-slate-700 dark:text-slate-200 transition-all shadow-sm">
+                        <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Carousel Container Semester 2 -->
+            <div id="carousel-sem2" class="flex gap-6 overflow-x-auto no-scrollbar scroll-smooth py-2 px-1">
+                <!-- Cards will be populated by JavaScript from courseDatabase.sem2 -->
+            </div>
+        </section>
+
+        <!-- SECTION 3: REFLEKSI PPG KESELURUHAN -->
+        <section id="refleksi-ppg" class="scroll-mt-20 space-y-6">
+            <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-3">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-2xl bg-teal-500/10 dark:bg-teal-400/10 text-teal-600 dark:text-teal-400 flex items-center justify-center font-bold">03</div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Refleksi Pengalaman PPG Keseluruhan</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Transformasi Diri, Paradigma Pedagogik & Nilai Kejuangan Guru</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-md space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="p-4 rounded-xl bg-sky-500/5 border border-sky-500/20 space-y-2">
+                        <div class="flex items-center gap-2 text-sky-600 dark:text-sky-400 font-bold">
+                            <i data-lucide="brain-circuit" class="w-5 h-5"></i> Perubahan Paradigma
+                        </div>
+                        <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                            Awalnya menganggap guru sebagai pusat pengetahuan (teacher-centered), kini menyadari sepenuhnya bahwa guru adalah fasilitator yang melayani kebutuhan belajar murid yang beragam.
+                        </p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-emerald-500/5 border border-emerald-500/20 space-y-2">
+                        <div class="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-bold">
+                            <i data-lucide="heart-handshake" class="w-5 h-5"></i> Keterampilan Sosial-Emosional
+                        </div>
+                        <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                            Mengasah empati, kesabaran, dan fleksibilitas mental dalam menghadapi dinamika kelas serta membangun kolaborasi yang positif dengan rekan sejawat dan wali murid.
+                        </p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-teal-500/5 border border-teal-500/20 space-y-2">
+                        <div class="flex items-center gap-2 text-teal-600 dark:text-teal-400 font-bold">
+                            <i data-lucide="refresh-cw" class="w-5 h-5"></i> Pembelajar Reflektif
+                        </div>
+                        <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                            Membiasakan evaluasi mandiri setelah mengajar (reflective practice) menggunakan alur MERDEKA & siklus ALACT untuk terus menyempurnakan kualitas pembelajaran.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="pt-4 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div class="text-xs text-slate-500 dark:text-slate-400">
+                        <strong>Dokumen Utama:</strong> Naskah Refleksi Komprehensif PPG Prajabatan
+                    </div>
+                    <button onclick="openModalTab('overall_ppg', 'refleksi')" class="w-full sm:w-auto px-5 py-2.5 bg-gradient-to-r from-sky-600 to-emerald-600 hover:from-sky-700 hover:to-emerald-700 text-white font-medium text-xs rounded-xl shadow-md flex items-center justify-center gap-2 transition-all">
+                        <i data-lucide="file-badge-2" class="w-4 h-4"></i> Buka Dokumen Refleksi PPG
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: KARYA INOVASI PENDIDIKAN -->
+        <section id="inovasi" class="scroll-mt-20 space-y-6">
+            <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-3">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-2xl bg-amber-500/10 dark:bg-amber-400/10 text-amber-600 dark:text-amber-400 flex items-center justify-center font-bold">04</div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Karya Inovasi Pendidikan</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Desain Karya, Deskripsi Singkat, & Link Produk Inovatif</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-md grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <!-- Media Preview -->
+                <div class="lg:col-span-5 space-y-3">
+                    <div class="relative aspect-video rounded-xl overflow-hidden bg-slate-900 border border-slate-700 shadow-inner group">
+                        <img src="study_bytes_thumbnail.jpeg" alt="Preview Karya Inovasi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                            <a href="https://example.com/demo-karya" target="_blank" class="p-3 bg-white/90 rounded-full text-sky-600 shadow-lg hover:scale-110 transition-all">
+                                <i data-lucide="external-link" class="w-6 h-6"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <p class="text-xs text-center text-slate-400 italic">Tampilan Portal StudyBytes</p>
+                </div>
+
+                <!-- Detail Karya -->
+                <div class="lg:col-span-7 space-y-4">
+                    <span class="px-3 py-1 rounded-md text-xs font-bold bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">
+                        Inovasi Pembelajaran Digital
+                    </span>
+                    <h4 class="text-2xl font-bold text-slate-900 dark:text-white">
+                        StudyBytes: Portal Terpadu Pembelajaran Informatika
+                    </h4>
+                    <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                        Karya inovasi ini dikembangkan sebagai portal terpadu berisi sumber belajar setiap bab dari materi, LKPD, hingga kuis yang ditujukan untuk membantu peserta didik mengikuti alur pembelajaran secara mandiri.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-3 text-xs">
+                        <div class="p-3 rounded-xl bg-slate-100 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
+                            <span class="block text-slate-400 text-[10px]">SASARAN KELAS</span>
+                            <span class="font-semibold text-slate-700 dark:text-slate-200">Kelas X dan XI SMA</span>
+                        </div>
+                        <div class="p-3 rounded-xl bg-slate-100 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
+                            <span class="block text-slate-400 text-[10px]">PLATFORM & ALAT</span>
+                            <span class="font-semibold text-slate-700 dark:text-slate-200">HTML5, CSS, Javascript, Vercel</span>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="pt-2 flex flex-wrap gap-3">
+                        <button onclick="openModalTab('karya_inovasi', 'refleksi')" class="px-4 py-2 bg-sky-600 hover:bg-sky-700 text-white rounded-xl text-xs font-medium flex items-center gap-2 shadow transition-all">
+                            <i data-lucide="file-text" class="w-4 h-4"></i> LK 4 Karya Inovatif
+                        </button>
+                        <a href="https://study-bytes-it.vercel.app" target="_blank" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-medium flex items-center gap-2 shadow transition-all">
+                            <i data-lucide="external-link" class="w-4 h-4"></i> Buka Link Karya Inovasi
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="documentModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-2 sm:p-4">
+        <div class="bg-white dark:bg-slate-900 rounded-3xl max-w-6xl w-2/3 h-full p-4 sm:p-6 shadow-2xl border border-slate-200 dark:border-slate-800 space-y-4 animate-in fade-in zoom-in duration-200 flex flex-col">
+            
+            <!-- Modal Header -->
+            <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-3 shrink-0">
+                <div>
+                    <h4 class="text-base sm:text-xl font-bold text-slate-900 dark:text-white" id="modalCourseTitle">Judul Mata Kuliah</h4>
+                    <p class="text-xs text-slate-500 dark:text-slate-400" id="modalCourseSubtitle">Deskripsi singkat mata kuliah</p>
+                </div>
+                <button onclick="closeModal()" class="p-2 rounded-xl text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all" title="Tutup Modal">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+
+            <!-- Tab Buttons Container -->
+            <div class="flex border-b border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-800/60 p-1 rounded-xl shrink-0">
+                <button id="tabBtnRefleksi" onclick="switchModalTab('refleksi')" class="flex-1 py-2.5 rounded-lg text-xs font-semibold flex items-center justify-center gap-2 transition-all">
+                    <i data-lucide="file-text" class="w-4 h-4"></i> Pratinjau Dokumen Refleksi
+                </button>
+                <button id="tabBtnArtefak" onclick="switchModalTab('artefak')" class="flex-1 py-2.5 rounded-lg text-xs font-semibold flex items-center justify-center gap-2 transition-all">
+                    <i data-lucide="paperclip" class="w-4 h-4"></i> Pratinjau Dokumen Artefak Pendukung
+                </button>
+            </div>
+            
+            <!-- Modal Body / Content Box (Full Screen iFrame Container) -->
+            <div class="flex-1 min-h-0 relative rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 shadow-inner">
+                <iframe id="modalDocumentIframe" class="w-full h-full border-0" src="" allow="autoplay"></iframe>
+            </div>
+
+            <!-- Modal Footer / Download Actions -->
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-3 border-t border-slate-200 dark:border-slate-800 shrink-0">
+                <span class="text-xs text-slate-500 dark:text-slate-400 font-medium" id="modalFileNotice">Membuka Pratinjau Dokumen PDF</span>
+                <div class="flex items-center gap-2 w-full sm:w-auto justify-end">
+                    <button onclick="closeModal()" class="px-4 py-2 rounded-xl text-xs font-medium text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">
+                        Tutup
+                    </button>
+                    <a id="modalDownloadBtn" href="#" download target="_blank" class="px-4 py-2 rounded-xl text-xs font-medium bg-sky-600 hover:bg-sky-700 text-white flex items-center gap-1.5 shadow transition-all">
+                        <i data-lucide="download" class="w-3.5 h-3.5"></i> Unduh Dokumen
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-20 border-t border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 backdrop-blur-md py-6 text-center text-xs text-slate-500 dark:text-slate-400">
+        <p>© 2026 Portofolio Digital Seminar PPG Prajabatan.</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
