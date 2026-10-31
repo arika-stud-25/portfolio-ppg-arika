@@ -138,10 +138,10 @@ const courseDatabase = {
         id: "karya_inovasi",
         title: "Desain Karya Inovatif Pendidikan",
         subtitle: "Study Bytes: Portal Pembelajaran Terpadu Informatika",
-        refleksiEmbed: "https://drive.google.com/file/d/1BzA1g2kS3s5R4e_xG5d2yK8o0qV3_X9z/preview",
-        artefakEmbed: "https://drive.google.com/file/d/1BzA1g2kS3s5R4e_xG5d2yK8o0qV3_X9z/preview",
-        refleksiDownload: "Desain_Karya_Inovatif_AhmadFauzi.pdf",
-        artefakDownload: "Lampiran_Uji_Coba_Inovasi.pdf",
+        refleksiEmbed: "https://drive.google.com/file/d/1IbUAz_CxtMbaxNOZdm01KIAsNHoYv-Qj/preview",
+        artefakEmbed: "",
+        refleksiDownload: "",
+        artefakDownload: "",
         singleTabOnly: true
     }
 };
