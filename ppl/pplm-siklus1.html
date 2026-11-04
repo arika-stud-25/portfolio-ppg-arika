@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="id" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeri PPL</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#3B82F6',
+                            purple: '#8B5CF6',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        html {
+            zoom: 85%;
+        }
+
+        @supports not (zoom: 85%) {
+            body {
+                transform: scale(0.85);
+                transform-origin: top center;
+                width: 125%; 
+            }
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #2563EB 0%, #7C3AED 50%, #EC4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gradient-button {
+            background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+        }
+
+        .gradient-button:hover {
+            background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%);
+        }
+
+        .glow-bg {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.12) 0%, rgba(59, 130, 246, 0.08) 50%, rgba(255,255,255,0) 70%);
+            border-radius: 50%;
+            z-index: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 min-h-screen flex flex-col justify-between overflow-x-hidden">
+
+    <!-- Ambient Glow background -->
+    <div class="glow-bg top-[-80px] left-[-80px]"></div>
+    <div class="glow-bg top-[40%] right-[-100px]"></div>
+
+    <!-- MAIN NAVIGATION BAR -->
+    <header class="sticky top-0 z-40 backdrop-blur-md bg-white/80 dark:bg-slate-900/80 border-b border-slate-200/80 dark:border-slate-800 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Brand Logo & Title -->
+            <a href="index.html" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 rounded-xl gradient-button flex items-center justify-center text-white shadow-md shadow-purple-500/20 transform group-hover:scale-105 transition">
+                    <img src="favicon.png">
+                </div>
+                <div>
+                    <h1 class="font-bold text-lg tracking-tight text-slate-900 dark:text-white flex items-center gap-1.5">
+                        Galeri <span class="text-purple-600 dark:text-purple-400">PPL</span>
+                    </h1>
+                    <p class="text-[11px] text-slate-500 dark:text-slate-400 font-medium tracking-wide">E-Portfolio Calon Guru</p>
+                </div>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="hidden lg:flex items-center space-x-1 font-medium text-sm">
+                <a href="index.html" class="px-4 py-2 rounded-full text-slate-600 hover:text-purple-600 dark:text-slate-300 dark:hover:text-purple-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition">Beranda</a>
+                <a href="profil.html" class="px-4 py-2 rounded-full text-slate-600 hover:text-purple-600 dark:text-slate-300 dark:hover:text-purple-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition">Profil</a>
+                <!-- <a href="pplt.html" class="px-4 py-2 rounded-full text-slate-600 hover:text-purple-600 dark:text-slate-300 dark:hover:text-purple-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition">PPL 1</a> -->
+                
+                <!-- PPL 2 Dropdown (Desktop Click Toggle) -->
+                <div class="relative">
+                    <button id="desktopPpl2Btn" class="px-4 py-2 rounded-full text-purple-700 dark:text-purple-300 bg-purple-100/80 dark:bg-purple-900/40 font-semibold transition">
+                        <span>PPL 2</span>
+                        <i id="desktopPpl2Icon" class="fa-solid fa-chevron-down text-[11px] transition-transform duration-200"></i>
+                    </button>
+                    <!-- Dropdown Menu -->
+                    <div id="desktopPpl2Menu" class="absolute left-0 mt-2 w-56 bg-white dark:bg-slate-900 rounded-2xl shadow-xl border border-slate-200/80 dark:border-slate-800 py-2 hidden transition-all duration-200 z-50">
+                        <a href="pplm-siklus1.html" class="flex items-center gap-2.5 px-4 py-2 text-xs text-slate-700 dark:text-slate-300 hover:bg-purple-50 dark:hover:bg-purple-950/40 hover:text-purple-600 dark:hover:text-purple-300 transition">
+                            <i class="fa-solid fa-circle-dot text-purple-500 text-[11px]"></i>
+                            <span>Siklus 1</span>
+                        </a>
+                        <a href="pplm-siklus2.html" class="flex items-center gap-2.5 px-4 py-2 text-xs text-slate-700 dark:text-slate-300 hover:bg-purple-50 dark:hover:bg-purple-950/40 hover:text-purple-600 dark:hover:text-purple-300 transition">
+                            <i class="fa-solid fa-rotate-right text-purple-500 text-[11px]"></i>
+                            <span>Siklus 2</span>
+                        </a>
+                        <a href="pplm-siklus3.html" class="flex items-center gap-2.5 px-4 py-2 text-xs text-slate-700 dark:text-slate-300 hover:bg-purple-50 dark:hover:bg-purple-950/40 hover:text-purple-600 dark:hover:text-purple-300 transition">
+                            <i class="fa-solid fa-rotate-right text-purple-500 text-[11px]"></i>
+                            <span>Siklus 3</span>
+                        </a>
+                        <a href="pplm-siklus4.html" class="flex items-center gap-2.5 px-4 py-2 text-xs text-slate-700 dark:text-slate-300 hover:bg-purple-50 dark:hover:bg-purple-950/40 hover:text-purple-600 dark:hover:text-purple-300 transition">
+                            <i class="fa-solid fa-rotate-right text-purple-500 text-[11px]"></i>
+                            <span>Siklus 4</span>
+                        </a>
+                        <div class="my-1 border-t border-slate-100 dark:border-slate-800"></div>
+                        <a href="pplm-video.html" class="flex items-center gap-2.5 px-4 py-2 text-xs text-slate-700 dark:text-slate-300 hover:bg-purple-50 dark:hover:bg-purple-950/40 hover:text-purple-600 dark:hover:text-purple-300 transition">
+                            <i class="fa-solid fa-circle-play text-purple-500 text-[11px]"></i>
+                            <span>Video Mengajar</span>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                <a href="refleksi.html" class="px-4 py-2 rounded-full text-slate-600 hover:text-purple-600 dark:text-slate-300 dark:hover:text-purple-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition">Refleksi</a>
+                <a href="galeri.html" class="px-4 py-2 rounded-full text-slate-600 hover:text-purple-600 dark:text-slate-300 dark:hover:text-purple-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition">Galeri</a>
+            </nav>
+
+            <!-- Right Controls (Theme Toggle & Mobile Menu Trigger) -->
+            <div class="flex items-center space-x-3">
+                <button id="themeToggle" class="p-2.5 rounded-full text-slate-600 hover:text-purple-600 dark:text-slate-300 dark:hover:text-purple-400 bg-slate-100 dark:bg-slate-800 transition shadow-sm" title="Ubah Mode Tema">
+                    <i class="fa-solid fa-moon dark:hidden text-lg"></i>
+                    <i class="fa-solid fa-sun hidden dark:block text-lg text-amber-400"></i>
+                </button>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="lg:hidden p-2.5 rounded-xl text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-800">
+                    <i class="fa-solid fa-bars text-lg"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Nav Menu Panel -->
+        <div id="mobileMenu" class="hidden lg:hidden border-b border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md px-4 pt-2 pb-4 space-y-2 text-sm font-medium">
+            <a href="index.html" class="block px-4 py-2.5 rounded-xl text-purple-700 bg-purple-50 dark:bg-purple-900/40 dark:text-purple-300 font-semibold">Beranda</a>
+            <a href="profil.html" class="block px-4 py-2.5 rounded-xl text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">Profil</a>
+            <!-- <a href="ppl1.html" class="block px-4 py-2.5 rounded-xl text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">PPL 1</a> -->
+            
+            <!-- Mobile Accordion for PPL 2 -->
+            <div class="space-y-1">
+                <button id="mobilePpl2Toggle" class="w-full flex items-center justify-between px-4 py-2.5 rounded-xl text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 text-left">
+                    <span>PPL 2</span>
+                    <i class="fa-solid fa-chevron-down text-xs transition-transform duration-200" id="mobilePpl2Icon"></i>
+                </button>
+                <div id="mobilePpl2Submenu" class="hidden pl-4 space-y-1">
+                    <a href="pplm-siklus1.html" class="block px-4 py-2 rounded-lg text-xs text-slate-600 dark:text-slate-400 hover:text-purple-600">Siklus 1</a>
+                    <a href="pplm-siklus2.html" class="block px-4 py-2 rounded-lg text-xs text-slate-600 dark:text-slate-400 hover:text-purple-600">Siklus 2</a>
+                    <a href="pplm-siklus3.html" class="block px-4 py-2 rounded-lg text-xs text-slate-600 dark:text-slate-400 hover:text-purple-600">Siklus 3</a>
+                    <a href="pplm-siklus4.html" class="block px-4 py-2 rounded-lg text-xs text-slate-600 dark:text-slate-400 hover:text-purple-600">Siklus 4</a>
+                    <a href="pplm-video.html" class="block px-4 py-2 rounded-lg text-xs text-slate-600 dark:text-slate-400 hover:text-purple-600">Video Mengajar</a>
+                    
+                </div>
+            </div>
+
+            <a href="refleksi.html" class="block px-4 py-2.5 rounded-xl text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">Refleksi</a>
+            <a href="galeri.html" class="block px-4 py-2.5 rounded-xl text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">Galeri</a>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10 flex-grow w-full z-10 relative">
+
+        <!-- SECTION 1: HEADER & TITLE -->
+        <section class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-10 border border-slate-200/80 dark:border-slate-800 shadow-xl shadow-purple-500/5 relative overflow-hidden flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div class="space-y-3 max-w-2xl">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300 text-xs font-bold uppercase tracking-wider">
+                    <i class="fa-solid fa-shapes"></i>
+                    <span>PPL 2 - Praktik Mengajar Mandiri</span>
+                </div>
+                <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+                    Artefak Produk Pembelajaran
+                </h1>
+                <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+                    Eksplorasi galeri dokumen pembelajaran interaktif, perangkat ajar, instrumen evaluasi, dan analisis kritis pedagogik pada pelaksanaan Siklus 1.
+                </p>
+            </div>
+            
+            <!-- Badge Siklus 1 Large -->
+            <div class="shrink-0 flex items-center justify-center">
+                <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-3xl bg-gradient-to-br from-blue-500 to-purple-600 text-white flex flex-col items-center justify-center shadow-lg shadow-purple-500/30">
+                    <span class="text-xs font-medium uppercase tracking-widest opacity-80">Siklus</span>
+                    <span class="text-4xl font-black">01</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: INFORMASI BAR (METADATA PERANGKAT) -->
+        <section class="bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-200/80 dark:border-slate-800 shadow-sm">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 divide-y md:divide-y-0 md:divide-x divide-slate-100 dark:divide-slate-800">
+                
+                <!-- Metadata Item 1 -->
+                <div class="pt-2 md:pt-0 md:px-4 space-y-1">
+                    <span class="text-xs text-slate-400 font-medium flex items-center gap-1.5">
+                        <i class="fa-solid fa-book text-blue-500"></i> Mata Pelajaran
+                    </span>
+                    <p class="font-bold text-sm text-slate-900 dark:text-white truncate">Informatika</p>
+                </div>
+
+                <!-- Metadata Item 2 -->
+                <div class="pt-2 md:pt-0 md:px-4 space-y-1">
+                    <span class="text-xs text-slate-400 font-medium flex items-center gap-1.5">
+                        <i class="fa-solid fa-layer-group text-purple-500"></i> Fase / Kelas
+                    </span>
+                    <p class="font-bold text-sm text-slate-900 dark:text-white truncate">Fase E / Kelas X</p>
+                </div>
+
+                <!-- Metadata Item 3 -->
+                <div class="pt-2 md:pt-0 md:px-4 space-y-1">
+                    <span class="text-xs text-slate-400 font-medium flex items-center gap-1.5">
+                        <i class="fa-solid fa-code text-pink-500"></i> Elemen CP
+                    </span>
+                    <p class="font-bold text-sm text-slate-900 dark:text-white">Berpikir Komputasional</p>
+                </div>
+
+                <!-- Metadata Item 4 -->
+                <div class="pt-2 md:pt-0 md:px-4 space-y-1">
+                    <span class="text-xs text-slate-400 font-medium flex items-center gap-1.5">
+                        <i class="fa-solid fa-lightbulb text-amber-500"></i> Topik Utama
+                    </span>
+                    <p class="font-bold text-sm text-slate-900 dark:text-white">Pilar BK, Algoritma, dan Struktur Data</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION 3: CAROUSEL & LIVE IFRAME PREVIEW ARTEFAK -->
+        <section class="space-y-4">
+            
+            <!-- Carousel Control Header / Tab Selector -->
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200/80 dark:border-slate-800">
+                <div class="flex items-center space-x-2">
+                    <span class="w-3 h-3 rounded-full bg-emerald-500 animate-ping"></span>
+                    <h2 class="font-bold text-base text-slate-900 dark:text-white flex items-center gap-2">
+                        <span>Live Document Viewer:</span>
+                        <span id="currentDocTitle" class="text-purple-600 dark:text-purple-400 font-extrabold">Modul Ajar (RPP)</span>
+                    </h2>
+                </div>
+
+                <!-- Navigation Controls (Left-Right Buttons) -->
+                <div class="flex items-center justify-between sm:justify-end gap-3">
+                    <span id="carouselCounter" class="text-xs font-mono font-semibold text-slate-500 dark:text-slate-400 px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-lg">1 / 5</span>
+                    <div class="flex items-center gap-2">
+                        <button id="prevBtn" class="w-10 h-10 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-purple-50 dark:hover:bg-purple-950 hover:text-purple-600 transition flex items-center justify-center shadow-sm">
+                            <i class="fa-solid fa-chevron-left text-sm"></i>
+                        </button>
+                        <button id="nextBtn" class="w-10 h-10 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-purple-50 dark:hover:bg-purple-950 hover:text-purple-600 transition flex items-center justify-center shadow-sm">
+                            <i class="fa-solid fa-chevron-right text-sm"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab Quick Selector Badges -->
+            <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1" id="tabSelectorContainer">
+                <!-- Dynamically Rendered Tabs -->
+            </div>
+
+            <!-- Document Iframe Display Container -->
+            <div class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200/80 dark:border-slate-800 overflow-hidden shadow-lg relative min-h-[500px] flex flex-col">
+                <!-- Top Toolbar Bar -->
+                <div class="bg-slate-100 dark:bg-slate-800/80 px-4 py-2.5 border-b border-slate-200 dark:border-slate-700 flex items-center justify-between text-xs">
+                    <div class="flex items-center space-x-2">
+                        <span class="w-3 h-3 rounded-full bg-rose-400 inline-block"></span>
+                        <span class="w-3 h-3 rounded-full bg-amber-400 inline-block"></span>
+                        <span class="w-3 h-3 rounded-full bg-emerald-400 inline-block"></span>
+                        <span id="docTypeLabel" class="ml-2 font-mono text-slate-500 dark:text-slate-400 hidden sm:inline">document_preview.pdf</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <a id="downloadDocBtn" href="#" target="_blank" class="text-purple-600 dark:text-purple-400 font-semibold hover:underline flex items-center gap-1">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            <span>Buka di Tab Baru</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Iframe Display -->
+                <div class="w-full flex-grow relative bg-slate-200 dark:bg-slate-950 flex items-center justify-center min-h-[550px]">
+                    <iframe id="docIframe" class="w-full h-full min-h-[550px] border-0" src="" title="Preview Artefak Dokumen"></iframe>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- SECTION 4: ANALISIS ARTEFAK DINAMIS BERDASARKAN ARTEFAK AKTIF -->
+        <section class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-10 border border-slate-200/80 dark:border-slate-800 shadow-xl shadow-purple-500/5 space-y-6">
+            
+            <!-- Section Header -->
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 dark:border-slate-800 pb-4">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-purple-600 dark:text-purple-400">Analisis Mendalam & Refleksi Pedagogik</span>
+                    <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white flex items-center gap-2 mt-1">
+                        <i class="fa-solid fa-magnifying-glass-chart text-purple-500"></i>
+                        <span>Analisis Artefak: <span id="analysisDocTitle" class="gradient-text">Modul Ajar (RPP)</span></span>
+                    </h3>
+                </div>
+                <span class="text-xs text-slate-400 bg-slate-100 dark:bg-slate-800 px-3 py-1.5 rounded-xl font-mono">Status: Integrasi Teori PPG</span>
+            </div>
+
+            <!-- Analysis Content Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <!-- 1. Konteks & Tujuan -->
+                <div class="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-5 border border-slate-100 dark:border-slate-700/60 space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-900/40 text-blue-600 dark:text-blue-300 flex items-center justify-center text-base">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 dark:text-white text-base">Konteks & Tujuan</h4>
+                    <p id="analysisContext" class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                        Memuat deskripsi konteks pembelajaran dan target pencapaian murid...
+                    </p>
+                </div>
+
+                <!-- 2. Kelebihan & Kekurangan -->
+                <div class="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-5 border border-slate-100 dark:border-slate-700/60 space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-amber-100 dark:bg-amber-900/40 text-amber-600 dark:text-amber-300 flex items-center justify-center text-base">
+                        <i class="fa-solid fa-scale-balanced"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 dark:text-white text-base">Kelebihan & Kekurangan</h4>
+                    <div class="space-y-2 text-xs">
+                        <div>
+                            <span class="font-semibold text-emerald-600 dark:text-emerald-400">Kelebihan:</span>
+                            <p id="analysisPros" class="text-slate-600 dark:text-slate-300 leading-relaxed">Memuat kelebihan dari artefak...</p>
+                        </div>
+                        <div>
+                            <span class="font-semibold text-rose-600 dark:text-rose-400">Tantangan/Evaluasi:</span>
+                            <p id="analysisCons" class="text-slate-600 dark:text-slate-300 leading-relaxed">Memuat kekurangan/area perbaikan...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Kajian Teori Pedagogik -->
+                <div class="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-5 border border-slate-100 dark:border-slate-700/60 space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-purple-100 dark:bg-purple-900/40 text-purple-600 dark:text-purple-300 flex items-center justify-center text-base">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 dark:text-white text-base">Kajian Teori Pedagogik</h4>
+                    <p id="analysisTheory" class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                        Memuat landasan teori belajar yang diintegrasikan (misal: Konstruktivisme, Problem Based Learning, TPACK, UbD)...
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 py-8 text-center text-xs text-slate-500 dark:text-slate-400 relative z-10 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="flex items-center space-x-2">
+                <i class="fa-solid fa-graduation-cap text-purple-600 text-base"></i>
+                <span class="font-bold text-slate-700 dark:text-slate-300">Galeri PPL</span>
+                <span>— E-Portfolio PPG Calon Guru</span>
+            </div>
+            <p>© 2026 Arika Rahma Faqih</p>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE CAROUSEL & DYNAMIC ANALYSIS DATA SCRIPT -->
+    <script>
+        // 1. DATA ARTEFAK 
+        const artifactsData = [
+            {
+                id: 'modul-ajar',
+                title: 'Modul Ajar (RPP)',
+                badgeLabel: '1. Modul Ajar',
+                icon: 'fa-file-lines',
+                embedUrl: 'https://drive.google.com/file/d/1cvGRZTGHdkFKmpAI4hupP2crlqrwzA-X/preview',
+                context: 'Modul ajar ini dirancang untuk 2 pertemuan (4 JP) pada materi Struktur Kontrol Percabangan di kelas X Informatika. Bertujuan agar peserta didik mampu menganalisis logika kondisional dalam algoritma.',
+                pros: 'Menggunakan pendekatan Understanding by Design (UbD) sehingga tujuan pembelajaran dan asesmen sangat selaras dengan kebutuhan murid.',
+                cons: 'Alokasi waktu untuk tahap apersepsi sedikit melebihi estimasi awal karena variasi kemampuan awal siswa.',
+                theory: 'Berlandaskan Teori Belajar Konstruktivisme Vygotsky (Zone of Proximal Development) dan prinsip Teaching at the Right Level (TaRL).'
+            },
+            {
+                id: 'lkpd',
+                title: 'Lembar Kerja Peserta Didik (LKPD)',
+                badgeLabel: '2. LKPD',
+                icon: 'fa-pen-to-square',
+                embedUrl: 'https://drive.google.com/file/d/1WF296Q7eNeMVXrZGsIfT88vfYwW5vWP_/preview',
+                context: 'LKPD berbasis studi kasus nyata yang dikerjakan secara berpasangan/kelompok untuk memecahkan masalah pemrograman percabangan dalam kehidupan sehari-hari.',
+                pros: 'Terdapat instruksi yang jelas dengan visual pendukung yang menarik serta fitur scaffolding bagi kelompok yang membutuhkan tantangan bertahap.',
+                cons: 'Beberapa peserta didik memerlukan bimbingan ekstra dalam memahami sintaks kondisional sebelum menyelesaikan studi kasus.',
+                theory: 'Mengintegrasikan teori Problem Based Learning (PBL) dan Collaborative Learning untuk membangun ketrampilan abad 21 (4C).'
+            },
+            {
+                id: 'media-pembelajaran',
+                title: 'Media Pembelajaran (Slide & Presentation)',
+                badgeLabel: '3. Media Pembelajaran',
+                icon: 'fa-display',
+                embedUrl: 'https://drive.google.com/file/d/1EdoEYho5exku9w2IssPhnbMLcTFfw5zA/preview',
+                context: 'Slide presentasi interaktif Canva dipadukan dengan kuis live Mentimeter untuk menguji pemahaman konsep variabel dan pernyataan if-else.',
+                pros: 'Sangat visual, interaktif, dan memicu ketertarikan serta keterlibatan aktif peserta didik sejak menit awal pembelajaran.',
+                cons: 'Sangat bergantung pada stabilitas koneksi internet laboratorium komputer sekolah.',
+                theory: 'Menerapkan kerangka kerja TPACK (Technological Pedagogical Content Knowledge) untuk mengoptimalkan efektivitas penyampaian materi.'
+            },
+            {
+                id: 'handbook',
+                title: 'Handbook / Bahan Ajar Digital',
+                badgeLabel: '4. Handbook Digital',
+                icon: 'fa-book-open',
+                embedUrl: 'https://drive.google.com/file/d/1uZUyrcvl1qv3TAOVvvZjI2ZWvRVKAlyS/preview',
+                context: 'Modul ringkas bergambar yang dibagikan secara digital kepada peserta didik sebagai acuan mandiri selama praktikum di laboratorium.',
+                pros: 'Memuat contoh baris kode nyata, penjelasan kesalahan umum (common bugs), dan ringkasan istilah penting.',
+                cons: 'Format masih berbasis PDF static, dapat dikembangkan lagi menjadi e-book beranimasi.',
+                theory: 'Didasari Teori Beban Kognitif (Cognitive Load Theory) Sweller agar materi disajikan secara jelas tanpa membingungkan memori kerja siswa.'
+            },
+            {
+                id: 'instrumen-penilaian',
+                title: 'Instrumen Penilaian & Asesmen',
+                badgeLabel: '5. Instrumen Evaluasi',
+                icon: 'fa-clipboard-check',
+                embedUrl: 'https://drive.google.com/file/d/1T-RPe8x1MXORVgD4NT2LYhIPQTlTVpXD/preview',
+                context: 'Perangkat penilai mencakup rubrik observasi sikap, lembar asesmen performa praktikum, dan kisi-kisi tes tertulis sumatif.',
+                pros: 'Kriteria penilaian rinci, transparan, serta dilengkapi rubrik per tingkatan kemampuan siswa.',
+                cons: 'Memerlukan waktu pengamatan yang cukup intensif saat menilai jalannya diskusi kelompok secara serentak.',
+                theory: 'Menerapkan konsep Assessment for Learning (AfL) dan Assessment as Learning (AaL) untuk memberikan umpan balik konstruktif.'
+            }
+        ];
+
+        let currentIndex = 0;
+
+        // Elements
+        const currentDocTitleEl = document.getElementById('currentDocTitle');
+        const carouselCounterEl = document.getElementById('carouselCounter');
+        const tabSelectorContainer = document.getElementById('tabSelectorContainer');
+        const docIframe = document.getElementById('docIframe');
+        const docTypeLabel = document.getElementById('docTypeLabel');
+        const downloadDocBtn = document.getElementById('downloadDocBtn');
+
+        const analysisDocTitle = document.getElementById('analysisDocTitle');
+        const analysisContext = document.getElementById('analysisContext');
+        const analysisPros = document.getElementById('analysisPros');
+        const analysisCons = document.getElementById('analysisCons');
+        const analysisTheory = document.getElementById('analysisTheory');
+
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        // Render Tabs
+        function renderTabs() {
+            tabSelectorContainer.innerHTML = '';
+            artifactsData.forEach((item, index) => {
+                const btn = document.createElement('button');
+                btn.className = `px-4 py-2 rounded-xl text-xs font-semibold shrink-0 transition flex items-center gap-2 ${
+                    index === currentIndex
+                        ? 'bg-purple-600 text-white shadow-md shadow-purple-500/20'
+                        : 'bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
+                }`;
+                btn.innerHTML = `<i class="fa-solid ${item.icon}"></i> <span>${item.badgeLabel}</span>`;
+                btn.addEventListener('click', () => {
+                    currentIndex = index;
+                    updateGalleryView();
+                });
+                tabSelectorContainer.appendChild(btn);
+            });
+        }
+
+        // Update Gallery & Dynamic Analysis Section
+        function updateGalleryView() {
+            const currentItem = artifactsData[currentIndex];
+
+            // Update Header & Counter
+            currentDocTitleEl.textContent = currentItem.title;
+            carouselCounterEl.textContent = `${currentIndex + 1} / ${artifactsData.length}`;
+
+            // Update Iframe & Link
+            docIframe.src = currentItem.embedUrl;
+            docTypeLabel.textContent = `${currentItem.id}.pdf`;
+            downloadDocBtn.href = currentItem.embedUrl;
+
+            // Update Analysis Text Dynamically
+            analysisDocTitle.textContent = currentItem.title;
+            analysisContext.textContent = currentItem.context;
+            analysisPros.textContent = currentItem.pros;
+            analysisCons.textContent = currentItem.cons;
+            analysisTheory.textContent = currentItem.theory;
+
+            // Re-render Tabs for active highlighting
+            renderTabs();
+        }
+
+        // Navigation Handlers
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + artifactsData.length) % artifactsData.length;
+            updateGalleryView();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % artifactsData.length;
+            updateGalleryView();
+        });
+
+        // Initialize view
+        updateGalleryView();
+
+        // Dark / Light Mode Toggle Logic
+        const themeToggleBtn = document.getElementById('themeToggle');
+        const htmlElement = document.documentElement;
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+        } else {
+            htmlElement.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            if (htmlElement.classList.contains('dark')) {
+                htmlElement.classList.remove('dark');
+                localStorage.theme = 'light';
+            } else {
+                htmlElement.classList.add('dark');
+                localStorage.theme = 'dark';
+            }
+        });
+
+        // Desktop PPL 2 Dropdown Click Toggle Logic
+        const desktopPpl2Btn = document.getElementById('desktopPpl2Btn');
+        const desktopPpl2Menu = document.getElementById('desktopPpl2Menu');
+        const desktopPpl2Icon = document.getElementById('desktopPpl2Icon');
+
+        if (desktopPpl2Btn && desktopPpl2Menu) {
+            desktopPpl2Btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                desktopPpl2Menu.classList.toggle('hidden');
+                desktopPpl2Icon.classList.toggle('rotate-180');
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!desktopPpl2Menu.contains(e.target) && !desktopPpl2Btn.contains(e.target)) {
+                    desktopPpl2Menu.classList.add('hidden');
+                    desktopPpl2Icon.classList.remove('rotate-180');
+                }
+            });
+        }
+
+        // Mobile Menu Toggle Logic
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Mobile PPL 2 Accordion Toggle
+        const mobilePpl2Toggle = document.getElementById('mobilePpl2Toggle');
+        const mobilePpl2Submenu = document.getElementById('mobilePpl2Submenu');
+        const mobilePpl2Icon = document.getElementById('mobilePpl2Icon');
+
+        if (mobilePpl2Toggle) {
+            mobilePpl2Toggle.addEventListener('click', () => {
+                mobilePpl2Submenu.classList.toggle('hidden');
+                mobilePpl2Icon.classList.toggle('rotate-180');
+            });
+        }
+    </script>
+</body>
+</html>
