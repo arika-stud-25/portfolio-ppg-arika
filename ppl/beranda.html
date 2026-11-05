@@ -32,14 +32,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        @media (min-width: 1024px) {
-            html {
-                zoom: 85%;
-            }
+        html {
+            zoom: 85%;
         }
-        html, body {
-            overflow-x: hidden;
-            width: 100%;
+
+        @supports not (zoom: 85%) {
+            body {
+                transform: scale(0.85);
+                transform-origin: top center;
+                width: 125%; 
+            }
         }
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
